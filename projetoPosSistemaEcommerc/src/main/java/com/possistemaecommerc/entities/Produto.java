@@ -1,11 +1,16 @@
 package com.possistemaecommerc.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
-@Table
 public class Produto {
 
     @Id
@@ -21,6 +26,9 @@ public class Produto {
 
     @Column(length = 250, nullable = false)
     private String descricao;
+
+    @Column(length = 250, nullable = false)
+    private String foto;
     /*
      * Nome do atributo na classe Pedido
      * onde foi mapeado a @JoinTable

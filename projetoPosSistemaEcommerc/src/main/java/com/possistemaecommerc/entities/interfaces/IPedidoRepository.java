@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface IPedidoRepository extends JpaRepository<Pedido,Integer> {
 
- /*   @Query("Select from Pedido join Cliente on Pedido.id_pedido=Cliente.id_cliente where Cliente.id_cliente= Pedido.id_cliente")
-    List<Pedido> findByCliente(@Param("pIdCliente") Integer idCliente);
-*/}
+    @Query("select from Pedido p join Cliente on Pedido.id_pedido=Cliente.id_cliente where Cliente.id_cliente= Pedido.id_cliente")
+    List<Pedido> findByCliente(@Param("idCliente") Integer idCliente);
+}
