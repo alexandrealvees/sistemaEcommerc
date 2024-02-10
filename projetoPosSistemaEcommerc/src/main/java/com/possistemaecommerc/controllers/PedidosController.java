@@ -1,23 +1,23 @@
 package com.possistemaecommerc.controllers;
 
-import com.possistemaecommerc.entities.Cliente;
 import com.possistemaecommerc.entities.Endereco;
-import com.possistemaecommerc.entities.interfaces.IEnderecoRepository;
+import com.possistemaecommerc.entities.Pedido;
+import com.possistemaecommerc.entities.interfaces.IClienteRepository;
+import com.possistemaecommerc.entities.interfaces.IPedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//@RequiredArgsConstructor
+
 @RestController
-@RequestMapping(path = "/api/enderecos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class EnderecoController {
+@RequestMapping(path = "/api/pedidos", produces = MediaType.APPLICATION_JSON_VALUE)
 
+public class PedidosController {
     @Autowired
-    IEnderecoRepository enderecoRepository;
-
-/*    private final IEnderecoRepository enderecoRepository;*/
+    private IPedidoRepository iPedidoRepository;
+//    private final IPedidoRepository iPedidoRepository;
 
     @PostMapping
     @ResponseBody
@@ -41,8 +41,7 @@ public class EnderecoController {
     }
     @GetMapping
     @ResponseBody
-    public ResponseEntity<List<Endereco>> getList() {
+    public ResponseEntity<List<Pedido>> getList() {
         return getList();
     }
-
 }

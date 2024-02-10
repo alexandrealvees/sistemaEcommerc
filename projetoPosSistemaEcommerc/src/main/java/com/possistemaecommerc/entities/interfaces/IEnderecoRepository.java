@@ -4,6 +4,6 @@ import com.possistemaecommerc.entities.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface EnderecoRepository extends JpaRepository<Endereco,Integer> {
+public interface IEnderecoRepository extends JpaRepository<Endereco,Integer> {
 
 }

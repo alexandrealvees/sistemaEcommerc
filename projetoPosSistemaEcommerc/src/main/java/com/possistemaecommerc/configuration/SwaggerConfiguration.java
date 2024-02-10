@@ -23,7 +23,7 @@ public class SwaggerConfiguration {
             Info information = new Info()
                     .title("Projeto PosTech Fiap Fase-5")
                     .version("1.0.0")
-                    .description("Esta Api expoe os endpoints para gerenciamento.");
+                    .description("Esta aplicação expõe os endpoints para gerenciamento da Api.");
             return new OpenAPI().info(information).servers(List.of(server));
         }
 }
