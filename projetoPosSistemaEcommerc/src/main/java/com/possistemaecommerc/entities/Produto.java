@@ -35,4 +35,8 @@ public class Produto {
      */
     @ManyToMany(mappedBy = "produtos")
     private List<Pedido> pedidos;
+
+    @ManyToOne
+    @JoinColumn(name = "idcategoria", nullable = false)
+    private Categoria categoria;
 }

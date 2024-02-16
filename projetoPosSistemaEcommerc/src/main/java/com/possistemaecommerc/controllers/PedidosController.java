@@ -4,7 +4,6 @@ import com.possistemaecommerc.dtos.clientes.ClienteGetDTO;
 import com.possistemaecommerc.dtos.pedidos.PedidoGetDTO;
 import com.possistemaecommerc.dtos.pedidos.PedidoPostDTO;
 import com.possistemaecommerc.dtos.produtos.ProdutoGetDTO;
-import com.possistemaecommerc.entities.Endereco;
 import com.possistemaecommerc.entities.Pedido;
 import com.possistemaecommerc.entities.Produto;
 import com.possistemaecommerc.entities.interfaces.IClienteRepository;
@@ -21,11 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static org.apache.coyote.http11.Constants.a;
-
 @RestController
 @RequestMapping(path = "/api/pedidos", produces = MediaType.APPLICATION_JSON_VALUE)
-
 public class PedidosController {
 
     @Autowired
@@ -78,6 +74,73 @@ public class PedidosController {
                             + e.getLocalizedMessage());
         }
     }
+    @GetMapping("/{idCliente}")
+    @ResponseBody
+    public ResponseEntity<List<PedidoGetDTO>> getById(@PathVariable("idCliente")Integer idCliente){
+ /*       try {
+List<PedidoGetDTO> result=new ArrayList<>();
+for (Pedido pedido : pedidoRepository.findByCliente(idCliente)){
+    PedidoGetDTO dto=new PedidoGetDTO();
+    dto.setIdPedido(pedido.getIdPedido());
+    dto.setCodigoPedido(pedido.getCodigoPedido());
+    dto.setDataPedido(DateHelper
+            .toStringPtBR(pedido.getDataPedido()));
+    dto.setValor(pedido.getValor());
+    dto.setCliente(new ClienteGetDTO());
+    dto.getCliente().setIdCliente
+            (pedido.getCliente().getIdCliente());
+    dto.getCliente()
+            .setNome(pedido.getCliente().getNome());
+    dto.getCliente()
+            .setEmail(pedido.getCliente().getEmail());
+    dto.getCliente()
+            .setCpf(pedido.getCliente().getCpf());
+    dto.getCliente()
+            .setTelefone(pedido.getCliente()
+                    .getTelefone());
+    dto.getCliente()
+            .setLogradouro(pedido.getCliente()
+                    .getEndereco().getLogradouro());
+    dto.getCliente().setNumero
+            (pedido.getCliente().getEndereco().getNumero()
+            );
+    dto.getCliente().setComplemento
+            (pedido.getCliente().getEndereco()
+
+                    .getComplemento());
+    dto.getCliente().setBairro
+            (pedido.getCliente().getEndereco().getBairro());
+    dto.getCliente().setCidade
+            (pedido.getCliente().getEndereco().getCidade());
+    dto.getCliente().setEstado
+            (pedido.getCliente().getEndereco().getEstado());
+    dto.getCliente().setCep
+            (pedido.getCliente().getEndereco().getCep());
+    dto.setProdutos(new ArrayList
+            <ProdutoGetDTO>());
+    for (Produto produto : pedido.getProdutos()) {
+        ProdutoGetDTO produtoDTO
+                = new ProdutoGetDTO();
+        produtoDTO.setIdProduto
+                (produto.getIdProduto());
+        produtoDTO.setNome(produto.getNome());
+        produtoDTO.setPreco(produto.getPreco());
+        produtoDTO.setDescricao
+                (produto.getDescricao());
+        produtoDTO.setFoto(produto.getFoto());
+        dto.getProdutos().add(produtoDTO);
+    }
+    result.add(dto);
+}
+            return ResponseEntity.status
+                    (HttpStatus.OK).body(result);
+        } catch (Exception e) {
+            return ResponseEntity.status
+                    (HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }*/
+   return null;
+        }
+
     @PutMapping
     @ResponseBody
     public ResponseEntity<String> put() {
@@ -88,14 +151,13 @@ public class PedidosController {
     public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
         return null;
     }
-    @GetMapping("/{idCliente}")
+    /*@GetMapping("/{idCliente}")
     @ResponseBody
     public ResponseEntity<List<PedidoGetDTO>> getById(@PathVariable("idCliente") Integer idCliente) {
         try {
             List<PedidoGetDTO> result= new ArrayList<PedidoGetDTO>();
-            for (Pedido pedido : pedidoRepository.findByCliente(idCliente)) {
-      //   Pedido pedido= pedidoRepository.getById(idCliente);
-                PedidoGetDTO dto = new PedidoGetDTO();
+            for (Pedido pedido : pedidoRepository.findByClientePorIdPedido(idCliente)) {
+                PedidoGetDTO dto= new PedidoGetDTO();
                 dto.setIdPedido(pedido.getIdPedido());
                 dto.setCodigoPedido(pedido.getCodigoPedido());
                 dto.setDataPedido(DateHelper
@@ -152,7 +214,7 @@ public class PedidosController {
             return ResponseEntity.status
                     (HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
-    }
+    }*/
 
     @GetMapping
     @ResponseBody

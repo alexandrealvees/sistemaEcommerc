@@ -16,32 +16,36 @@ import java.util.Optional;
 //@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/api/produtos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProdutoController {
+public class ProdutosController {
 
     @Autowired
     private IProdutoRepository produtoRepository;
 //    private final IProdutoRepository clienteRepository;
 
-/*
-    @PostMapping
-    @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    @GetMapping
+@ResponseBody
+public ResponseEntity<List<ProdutoGetDTO>> getAll() {
+    try {
+        List<ProdutoGetDTO> result
+                = new ArrayList<ProdutoGetDTO>();
+        for (Produto produto :produtoRepository.findAll()) {
+            ProdutoGetDTO dto = new ProdutoGetDTO();
+            dto.setIdProduto(produto.getIdProduto());
+            dto.setNome(produto.getNome());
+            dto.setPreco(produto.getPreco());
+            dto.setDescricao(produto.getDescricao());
+            dto.setFoto(produto.getFoto());
+            result.add(dto);
+        }
+        return ResponseEntity
+                .status(HttpStatus.OK).body(result);
+    } catch (Exception e) {
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR).body(null)
+                ;
     }
+}
 
-
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<String> put() {
-        return null;
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseBody
-    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
-        return null;
-    }
-*/
     @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<ProdutoGetDTO> getById(@PathVariable("id") Integer id) {

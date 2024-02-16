@@ -1,6 +1,5 @@
 package com.possistemaecommerc.controllers;
 
-import com.possistemaecommerc.entities.Cliente;
 import com.possistemaecommerc.entities.Endereco;
 import com.possistemaecommerc.entities.interfaces.IEnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import java.util.List;
 //@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/api/enderecos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class EnderecoController {
+public class EnderecosController {
 
     @Autowired
     IEnderecoRepository enderecoRepository;

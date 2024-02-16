@@ -13,13 +13,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 //@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/api/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ClienteController {
+public class ClientesController {
 
     @Autowired
     private IClienteRepository clienteRepository;
@@ -160,10 +159,4 @@ public class ClienteController {
         }
     }
 
-
-    @GetMapping
-    @ResponseBody
-    public ResponseEntity<List<Cliente>> getList() {
-        return getList();
-    }
 }
