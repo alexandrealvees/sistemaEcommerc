@@ -16,6 +16,7 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Integer idPedido;
 
     @Column(nullable = false,unique = true)

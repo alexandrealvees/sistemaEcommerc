@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Integer idEndereco;
 
     @Column(length = 250, nullable = false)

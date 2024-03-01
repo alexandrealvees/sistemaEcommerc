@@ -71,27 +71,27 @@ public ResponseEntity<List<ProdutoGetDTO>> getAll() {
         }
 }
 
-    @GetMapping
-    @ResponseBody
-    public ResponseEntity<List<ProdutoGetDTO>> getList() {
-        try {
-            List<ProdutoGetDTO> result= new ArrayList<ProdutoGetDTO>();
-            for (Produto produto :produtoRepository.findAll()) {
-                ProdutoGetDTO dto = new ProdutoGetDTO();
-                dto.setIdProduto(produto.getIdProduto());
-                dto.setNome(produto.getNome());
-                dto.setPreco(produto.getPreco());
-                dto.setDescricao(produto.getDescricao());
-                dto.setFoto(produto.getFoto());
-                result.add(dto);
-            }
-            return ResponseEntity
-                    .status(HttpStatus.OK).body(result);
-        } catch (Exception e) {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR).body(null)
-                    ;
-        }
-
-    }
+//    @GetMapping
+//    @ResponseBody
+//    public ResponseEntity<List<ProdutoGetDTO>> getList() {
+//        try {
+//            List<ProdutoGetDTO> result= new ArrayList<ProdutoGetDTO>();
+//            for (Produto produto :produtoRepository.findAll()) {
+//                ProdutoGetDTO dto = new ProdutoGetDTO();
+//                dto.setIdProduto(produto.getIdProduto());
+//                dto.setNome(produto.getNome());
+//                dto.setPreco(produto.getPreco());
+//                dto.setDescricao(produto.getDescricao());
+//                dto.setFoto(produto.getFoto());
+//                result.add(dto);
+//            }
+//            return ResponseEntity
+//                    .status(HttpStatus.OK).body(result);
+//        } catch (Exception e) {
+//            return ResponseEntity
+//                    .status(HttpStatus.INTERNAL_SERVER_ERROR).body(null)
+//                    ;
+//        }
+//
+//    }
 }

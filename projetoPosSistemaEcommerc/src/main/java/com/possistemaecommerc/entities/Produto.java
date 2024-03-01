@@ -15,7 +15,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(columnDefinition = "serial")
     private Integer idProduto;
 
     @Column(length = 150, nullable = false)

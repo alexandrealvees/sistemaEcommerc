@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Integer idCliente;
 
     @Column(length = 250, nullable = false)
