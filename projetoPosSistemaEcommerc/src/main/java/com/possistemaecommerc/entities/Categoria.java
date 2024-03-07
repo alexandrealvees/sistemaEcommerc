@@ -1,3 +1,4 @@
+/*
 package com.possistemaecommerc.entities;
 
 import jakarta.persistence.*;
@@ -26,3 +27,4 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private List<Produto> produtos;
 }
+*/

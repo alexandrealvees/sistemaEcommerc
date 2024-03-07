@@ -1,3 +1,4 @@
+/*
 package com.possistemaecommerc.controllers;
 
 import com.possistemaecommerc.dtos.Categorias.CategoriasDto;
@@ -19,3 +20,4 @@ public class CategoriaController {
         return null;
     }
 }
+*/

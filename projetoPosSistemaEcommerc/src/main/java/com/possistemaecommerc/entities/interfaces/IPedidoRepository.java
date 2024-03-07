@@ -12,4 +12,6 @@ public interface IPedidoRepository extends JpaRepository<Pedido,Integer> {
 
 /*    @Query(value = "select p from Pedido p join Cliente c on p.id_pedido=p.id_pedido where c.id_cliente= p.id_cliente",nativeQuery = true)
     List<Pedido> findByClientePorIdPedido(@Param("idCliente") Integer idCliente);*/
+@Query("from Pedido p join p.cliente c where c.idCliente= :pIdCliente")
+    List<Pedido> findByCliente(@Param("pIdCliente") Integer idCliente);
 }

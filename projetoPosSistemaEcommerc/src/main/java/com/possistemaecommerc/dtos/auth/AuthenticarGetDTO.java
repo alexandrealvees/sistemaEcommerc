@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AuthGetDTO {
+public class AuthenticarGetDTO {
     private String mensagem;
     private String accessToken;
     private ClienteGetDTO cliente;

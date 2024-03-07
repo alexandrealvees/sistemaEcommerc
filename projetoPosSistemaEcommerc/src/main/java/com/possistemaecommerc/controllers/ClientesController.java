@@ -7,6 +7,7 @@ import com.possistemaecommerc.entities.Cliente;
 import com.possistemaecommerc.entities.Endereco;
 import com.possistemaecommerc.entities.interfaces.IClienteRepository;
 import com.possistemaecommerc.entities.interfaces.IEnderecoRepository;
+import com.possistemaecommerc.security.Criptografia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -45,7 +46,7 @@ public class ClientesController {
             cliente.setCpf(dto.getCpf());
             cliente.setTelefone(dto.getTelefone());
             cliente.setSenha(dto.getSenha());
- //           cliente.setSenha(Cryptography.criptografar(dto.getSenha()));
+            cliente.setSenha(Criptografia.criptografar(dto.getSenha()));
 // capturando os dados do endereço
             Endereco endereco = new Endereco();
             endereco.setLogradouro(dto.getLogradouro());
@@ -83,7 +84,7 @@ public class ClientesController {
             cliente.setNome(dto.getNome());
             cliente.setTelefone(dto.getTelefone());
             cliente.setSenha(dto.getSenha());
-//            cliente.setSenha(Cryptography.criptografar(dto.getSenha()));
+            cliente.setSenha(Criptografia.criptografar(dto.getSenha()));
 // modificando os dados do endereço
             cliente.getEndereco().setLogradouro(dto.getLogradouro());
             cliente.getEndereco().setNumero(dto.getNumero());
